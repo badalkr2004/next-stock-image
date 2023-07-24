@@ -56,7 +56,7 @@ const Dropzone: React.FC<{ className?: string }> = ({ className }) => {
         accept: {
             "image/png": [".png"],
         },
-        maxSize: 1024 * 1000,
+        maxSize: 1024 * 5000,
         onDrop,
     };
 
@@ -121,20 +121,21 @@ const Dropzone: React.FC<{ className?: string }> = ({ className }) => {
                 public_id,
             } = await cloudinaryResponse.json();
 
-            if (!public_id) {
-                return;
+            if (public_id) {
+                const dbresponse = await axios.post('/api/users/savetodb',{   
+                    created_at,
+                    format,
+                    height,
+                    width,
+                    original_filename,
+                    public_id,
+                    tags,})
+                    console.log(dbresponse)
+                    toast.success("upload successfull")
+            }else{
+                return          
             }
 
-            const dbresponse = await axios.post('/api/users/savetodb',{   
-                created_at,
-                format,
-                height,
-                width,
-                original_filename,
-                public_id,
-                tags,})
-                console.log(dbresponse)
-                toast.success("upload successfull")
         });
     };
 
