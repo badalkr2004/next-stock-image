@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+@layer base {
+  body {
+      overflow-x: hidden;
+  }
+}
+
+/* $$$$$$ main shadow */
+.shadow {
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.6);
+}
+/* $$$$$$ main shadow */
+
+/* all home layout related css */
+@layer components
+{
+  .content_btn_Scroller::-webkit-scrollbar {
+     display: none;
+  }
+  .content_btn_Scroller::-webkit-scrollbar-track
+  {
+      display: none;
+  }
+  .content_btn_Scroller::-webkit-scrollbar-thumb
+  {
+      display: none;
+  }
+}
+/* respnsive navbar webkit scroller design */
+@layer components
+{
+  .ResponsiveNavbarScroller::-webkit-scrollbar {
+      width: 10px;
+  }
+  .ResponsiveNavbarScroller::-webkit-scrollbar-track
+  {
+      background-color:#2c2d2c;
+  }
+  .ResponsiveNavbarScroller::-webkit-scrollbar-thumb
+  {
+      background-color:#fff;
+      border-radius: 20px;
+  }
+}
+/* respnsive navbar webkit scroller design */
+
+@layer components
+{
+  .ImageCollectionGrid{
+      display: grid;
+      grid-template-columns: 24% 24% 24% 25%;
+      gap:20px;
+  }
+  .ResponsiveImageCollectionGrid1{
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      gap:20px;
+  }
+  .ResponsiveImageCollectionGrid2{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap:20px;
+  }
+  .ResponsiveImageCollectionGrid3{
+      display: grid;
+      grid-template-columns:100% ;
+      gap:20px;
+  }
+
+  .imageContainerCol1{
+      display: grid;
+      grid-template-rows: repeat(auto-fill,200px);
+      gap: 20px;
+  }
+  .imageContainerCol2{
+      display: grid;
+      grid-template-rows: repeat(auto-fill,320px);
+      gap: 20px;
+  }   
+  .imageContainerCol2SubCol1{
+      display: grid;
+      grid-template-rows: repeat(auto-fill,200px);
+      gap: 20px;
+  }
+  .imageContainerCol3{
+      display: grid;
+      grid-template-rows: repeat(auto-fill,270px);
+      gap: 20px;
+  }
+  .imageContainerCol4{
+      display: grid;
+      grid-template-rows: repeat(auto-fill,200px);
+      gap: 20px;
+  }
+}
+
+/* gradient of discover more */
+@layer components 
+{
+  .discover_gradient 
+  {
+      background: linear-gradient(180deg,hsla(0,0%,100%,0),#fff);
+      /* background-color: #7fd3ff; */
+  }
+}
+/* gradient of discover more */
+/* all home layout related css */
