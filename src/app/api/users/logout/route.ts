@@ -1,18 +1,17 @@
-import { NextResponse } from "next/server"
-export const GET = async() => {
- try {
-    const response = NextResponse.json({
-        message:"Logout Succesful",
-        success:true
-    }) 
+import { NextRequest, NextResponse } from "next/server";
+export async function GET(req: NextRequest) {
 
-    response.cookies.set("token","",{
-        httpOnly:true,
-        expires:new Date(0)
+
+  const response = new NextResponse(JSON.stringify({ status: "success" }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
+
+  await response.cookies.set({
+      name: "token",
+      value: "",
+      maxAge: -1,
     })
-    return response;
- } catch (error:any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
- }
+   
+  return response;
 }
-
